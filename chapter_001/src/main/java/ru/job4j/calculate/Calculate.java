@@ -1,8 +1,16 @@
 package ru.job4j.calculate;
 
+/**
+ *Class Calculate решение задачи части 001. Урок 1.
+ *@author eivanov	
+ *since 25.02.2019
+*/
 public class Calculate {
-	
-	public static void main (String[] args) {
+	/**
+	* Метод main, вывод строки в консоль
+	* @param args - args
+	*/
+public static void main (String[] args) {
 		System.out.println("Hello World");
 	}
 }	
