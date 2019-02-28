@@ -14,3 +14,11 @@ public static void main (String[] args) {
 		System.out.println("Hello World");
 	}
 }	
+/**
+* Method echo
+* @parm name evgen
+* @return Echo plus evgen
+*/
+public String echo (String Evgeny Ivanov) {
+	return "Echo, echo, echo : " + Evgeny Ivanov;
+}
