@@ -19,7 +19,7 @@ public static void main (String[] args) {
 * @parm name evgen
 * @return Echo plus evgen
 */
-public String echo (String (EvgenyIvanov)); {
-	return "Echo, echo, echo : " + EvgenyIvanov;
+public String echo (String Name) {
+	return "Echo, echo, echo : " + Name;
 }
 }
