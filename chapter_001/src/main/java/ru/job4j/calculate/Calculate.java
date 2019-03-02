@@ -13,7 +13,7 @@ public class Calculate {
 public static void main (String[] args) {
 		System.out.println("Hello World");
 	}
-}	
+	
 /**
 * Method echo
 * @parm name evgen
@@ -21,4 +21,5 @@ public static void main (String[] args) {
 */
 public String echo (String Evgeny Ivanov) {
 	return "Echo, echo, echo : " + Evgeny Ivanov;
+}
 }
