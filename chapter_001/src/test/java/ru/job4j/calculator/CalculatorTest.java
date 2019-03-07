@@ -19,4 +19,18 @@ public class CalculatorTest  {
         double expected = 1;
         assertThat(result, is(expected));
     }
+    @Test
+    public void whenDivFourDividedTwoThenTwo() {
+        Calculator calc = new Calculator();
+        double result = calc.div(4, 2);
+        double expected = 2;
+        assertThat(result, is(expected));
+    }
+    @Test
+    public void whenMultipleTwoUmnogitTwoThenFour() {
+        Calculator calc = new Calculator();
+        double result = calc.multiple(2, 2);
+        double expected = 4;
+        assertThat(result, is(expected));
+    }
 }
