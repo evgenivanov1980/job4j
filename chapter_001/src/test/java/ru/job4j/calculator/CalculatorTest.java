@@ -20,3 +20,5 @@ public class CalculatorTest  {
         assertThat(result, is(expected));
     }
 }
+    @Test
+    public void when
