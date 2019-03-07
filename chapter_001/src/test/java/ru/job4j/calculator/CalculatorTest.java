@@ -12,4 +12,11 @@ public class CalculatorTest  {
         double expected = 2D;
         assertThat(result, is(expected));
     }
+    @Test
+    public void whenSubtractOneMinusOneThenNull() {
+        Calculator calc = new Calculator();
+        double result = calc.subtract(2,1);
+        double expected = 1;
+        assertThat(result, is(expected));
+    }
 }
