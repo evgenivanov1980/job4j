@@ -1,5 +1,6 @@
 package ru.job4j.condition;
 
+import static java.lang.Math.pow;
 import static java.lang.Math.sqrt;
 
 public class Point {
@@ -8,4 +9,7 @@ public class Point {
         double second = Math.pow(y2 - y1, 2);
         return sqrt(first + second);
     }
+
+
+
 }
