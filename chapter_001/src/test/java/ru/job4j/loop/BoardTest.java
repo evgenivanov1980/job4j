@@ -15,6 +15,6 @@ import static org.junit.Assert.assertThat;
 
 public class BoardTest {
     @Test
-    public void when3x3
+    public void when3x3 {
 
 }

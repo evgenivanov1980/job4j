@@ -8,14 +8,14 @@ public class Board {
             for (int j = 0; j <= weight; j++) {
                 if (i + j % 2 == 0) {
                     screen.append("X");
-                }
-                else {
+                } else {
                     screen.append("0");
                 }
             }
         }
-            screen.append(ln);
+        screen.append(ln);
         return toString();
+
 
     }
 }
