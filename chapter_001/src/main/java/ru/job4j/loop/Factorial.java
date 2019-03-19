@@ -15,10 +15,9 @@ public class Factorial {
     public int calc(int n) {
         int result = 1;
         for (int num = 1; num <= n; num++) {
-            result = num != 0 ? num * result : 1;
-
+            result =  num * result;
             }
-     return result;
+     return n != 0 ? result : 1;
     }
 
 }
