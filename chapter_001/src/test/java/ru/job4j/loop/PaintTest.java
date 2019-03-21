@@ -47,4 +47,24 @@ public class PaintTest {
                 )
         );
     }
+
+    @Test
+    public void whenpyramida4() {
+        Paint paint = new Paint();
+        String rst = paint.pyramyd(4);
+        System.out.println(rst);
+        assertThat(rst,
+                is(new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
+                        .add("   ^   ")
+                        .add("  ^^^  ")
+                        .add(" ^^^^^ ")
+                        .add("^^^^^^^")
+                        .toString()
+                )
+        );
+    }
 }
+
+
+
+
