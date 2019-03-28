@@ -1,6 +1,13 @@
 package ru.job4j.array;
 
 public class Turn {
+
+    /**
+     * Метод переворачмвает массив
+     * @param array
+     * @return возвращает перевернутый массив
+     */
+
     public int[] back(int[] array) {
         int tmp = 0;
         for (int index = 0; index < array.length / 2; index++) {
