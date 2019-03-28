@@ -1,6 +1,6 @@
 package ru.job4j.array;
 
-        import jdk.nashorn.internal.ir.WhileNode;
+
 
 public class Check {
     public boolean mono(boolean[] date) {
