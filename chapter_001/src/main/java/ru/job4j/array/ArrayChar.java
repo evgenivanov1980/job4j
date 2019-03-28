@@ -25,6 +25,7 @@ public class ArrayChar {
         for (int index = 0; index < value.length; index++) {
             if (date[index] != value[index]) {
                 result = false;
+                break;
             }
 
         }
