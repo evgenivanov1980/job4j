@@ -22,8 +22,8 @@ public class ArrayChar {
         boolean result = true;
         char[] value = prefix.toCharArray();
         // проверить что массив date имеет первые элементы, одинаковые с value
-        for (int i = 0; i < value.length; i++) {
-            if (date[i] != value[i]) {
+        for (int index = 0; index < value.length; index++) {
+            if (date[index] != value[index]) {
                 result = false;
             }
 
