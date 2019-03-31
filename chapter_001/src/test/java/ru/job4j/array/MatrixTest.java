@@ -5,6 +5,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.Is.is;
 
+/**
+ *@author Evgeny Ivanov
+ * @version 01
+ * @since $1d$
+ */
+
 
 public class MatrixTest {
     @Test
