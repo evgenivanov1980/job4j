@@ -17,6 +17,15 @@ public class ArrayDublicateTest {
 
 
     }
+    @Test
+    public void whenRemoveDublicatesThenWithoutDublicate2() {
+        ArrayDublicate remove = new ArrayDublicate();
+        String[] result = remove.remove(new String[] {"На", "Дворе", "На", "Трава", "Ночь", "Дворе"});
+        String[] expect = new String[] {"На", "Дворе", "Ночь", "Трава"};
+        assertThat(result, is(expect));
+
+    }
+
 
 
 }
