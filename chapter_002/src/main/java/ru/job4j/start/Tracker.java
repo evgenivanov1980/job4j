@@ -38,7 +38,7 @@ public class Tracker {
 
     public boolean replace(String id, Item item) {
         boolean result = false;
-        for (int i = 0; i < items.length; i++) {
+        for (int i = 0; i < position; i++) {
             if (item.getId().equals(id)) {
                 item.setId(id);
                 items[i] = item;
@@ -58,6 +58,7 @@ public class Tracker {
     /**
      * Метод удаления заявки. Метод находит ячейку в массиве по id. Далее смещаем все значения справа от удаляемого
      * элемента - на одну ячейку влево с помощью System.arrayCopy(), удаляя таким образом найденную ячейку.
+     *
      * @param id ячейки (заявки) которую нужно удалить.
      * @return метод возвращет true если, оперция по удалению завершилась успешно.
      */
@@ -67,7 +68,7 @@ public class Tracker {
         for (int i = 0; i < position; i++) {
             if (this.items[i].getId().equals(id)) {
                 System.arraycopy(items, i + 1, items, i, items.length - i - 1);
-                position--;
+                items[position--] = null;
                 result = true;
                 break;
 
@@ -76,6 +77,18 @@ public class Tracker {
         }
         return result;
     }
+
+
+    /** Метод находит все заявки в массиве, после чего обрезает ячейки со значением null, оставляя таким образом
+     *  в массиве только заявки/
+     * @return возвращет массив без значений null.
+     */
+
+    public Item[] findAll() { return Arrays.copyOf(items, position); }
+
+
+
+
 
 
     protected Item findById(String id) {
