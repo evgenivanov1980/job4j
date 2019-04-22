@@ -83,7 +83,9 @@ public class Tracker {
      * @return возвращет массив без значений null.
      */
 
-    public Item[] findAll() { return Arrays.copyOf(items, position); }
+    public Item[] findAll() {
+        return Arrays.copyOf(items, position);
+    }
 
 
 
@@ -96,7 +98,7 @@ public class Tracker {
      */
 
     public Item[] findByName(String key) {
-        Item resultitems[] = new Item[position];
+        Item[] resultitems = new Item[position];
         int index = 0;
         for (int i = 0; i < position; i++) {
             if (key.equals(items[i].getName())) {

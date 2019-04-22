@@ -36,7 +36,7 @@ public class TrackerTest {
         //Обновляем заявку в трекере
         tracker.replace(previous.getId(), next);
         //Проверяем, что заявка с таким id имеет новое имя test2
-        assertThat(tracker.findById(previous.getId()).getName(), is("test2")  );
+        assertThat(tracker.findById(previous.getId()).getName(), is("test2"));
 
 
 
@@ -46,7 +46,7 @@ public class TrackerTest {
     public void whenDeleteIdThenReturnNewLength() {
         Tracker tracker = new Tracker();
         Item one = new Item("test1", "testdescription1", 123L);
-        Item two = new Item("test2", "testdescription2", 1234L );
+        Item two = new Item("test2", "testdescription2", 1234L);
         Item three = new Item("test3", "description3", 12345);
         tracker.add(three);
         tracker.delete(two.getId());
@@ -59,7 +59,7 @@ public class TrackerTest {
     @Test
     public void whenIntoArrayHasNullThenReturnNewArrayWithoutNull() {
         Tracker tracker = new Tracker();
-        Item item[] = new Item[10];
+        Item[] item = new Item[10];
         Item one = new Item("test1", "test1description1", 123L);
         Item two = new Item("test2", "test2description", 1234L);
         tracker.add(one);
