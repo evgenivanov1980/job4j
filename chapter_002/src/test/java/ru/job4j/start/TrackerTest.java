@@ -1,7 +1,10 @@
 package ru.job4j.start;
 
+import org.junit.Assert;
 import org.junit.Test;
 import ru.job4j.models.Item;
+
+import java.util.Arrays;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.Matchers.is;
@@ -45,12 +48,11 @@ public class TrackerTest {
         Item one = new Item("test1", "testdescription1", 123L);
         Item two = new Item("test2", "testdescription2", 1234L );
         Item three = new Item("test3", "description3", 12345);
-        tracker.add(one);
-        tracker.add(two);
         tracker.add(three);
-        boolean res = tracker.delete(three.getId());
         tracker.delete(two.getId());
-        assertThat(res, is(true));
+        Item[] result = tracker.findAll();
+        Item[] expect = new Item[] {one, two};
+        Arrays.equals(result, expect);
 
     }
 
@@ -65,6 +67,25 @@ public class TrackerTest {
         item = tracker.findAll();
         int result = item.length;
         assertThat(result, is(2));
+
+
+
+    }
+
+    @Test
+    public void whenFindNameThenCopyItemInResultArray() {
+        Tracker tracker = new Tracker();
+        Item one = new Item("test2", "testdescription1", 123L);
+        Item two = new Item("test2", "testdescription2", 1234L);
+        Item three = new Item("test3", "testdescriotion3", 125L);
+        Item four = new Item("test2", "testdescription4", 564L);
+        tracker.add(one);
+        tracker.add(two);
+        tracker.add(three);
+        tracker.add(four);
+        Item[] result = tracker.findByName("test2");
+        Item[] expect = new Item[] {one, two, four};
+        Arrays.equals(result, expect);
 
 
 
