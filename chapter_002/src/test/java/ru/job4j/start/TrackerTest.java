@@ -48,11 +48,13 @@ public class TrackerTest {
         Item one = new Item("test1", "testdescription1", 123L);
         Item two = new Item("test2", "testdescription2", 1234L);
         Item three = new Item("test3", "description3", 12345);
+        tracker.add(one);
+        tracker.add(two);
         tracker.add(three);
         tracker.delete(two.getId());
         Item[] result = tracker.findAll();
-        Item[] expect = new Item[] {one, two};
-        Arrays.equals(result, expect);
+        Item[] expect = new Item[] {one, three};
+        assertArrayEquals(result, expect);
 
     }
 
@@ -85,7 +87,7 @@ public class TrackerTest {
         tracker.add(four);
         Item[] result = tracker.findByName("test2");
         Item[] expect = new Item[] {one, two, four};
-        Arrays.equals(result, expect);
+        assertArrayEquals(result, expect);
 
 
 
