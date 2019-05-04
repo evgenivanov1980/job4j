@@ -40,13 +40,13 @@ public class StartUI {
      * Константа меню ддя нахождения заявки по id
      */
 
-    private static final String FINDId = "4";
+    private static final String FINDID = "4";
 
     /**
      * Константа меню для нахождения заявки по имени
      */
 
-    private static final String FINDName = "5";
+    private static final String FINDNAME = "5";
 
     /**
      * Константа  для выхода из меню
@@ -96,7 +96,16 @@ public class StartUI {
             } else if (EDIT.equals(answer)) {
                 this.editItem();
 
+            } else if (DELETE.equals(answer)) {
+                this.deleteItem();
+            } else if (FINDID.equals(answer)) {
+                this.findItemById();
+            } else if (FINDNAME.equals(answer)) {
+                this.findItemByName();
+            } else if (EXIT.equals(answer)) {
+                break;
             }
+
 
         }
 
@@ -112,7 +121,7 @@ public class StartUI {
         String desc = this.input.ask("Введите описание заявки:");
         Item item = new Item(name, desc);
         this.tracker.add(item);
-        System.out.println("--------Новая заявка с get.id: " + item.getId() + "-------");
+        System.out.println("--------Новая заявка с id: " + item.getId() + "-------");
 
 
     }
@@ -144,7 +153,6 @@ public class StartUI {
         System.out.println("Новое имя заявки" + item.getName() + "Новое описание заявки" + item.getDescription() + "----");
 
 
-
     }
 
     /**
@@ -156,6 +164,26 @@ public class StartUI {
         this.tracker.delete(id);
 
 
+    }
+
+    /**
+     * Метод поиска заявки по id
+     */
+    public void findItemById() {
+        System.out.println("----- Поиск заявки по id-----");
+        String id = this.input.ask("Введите id заявки");
+        Item item = this.tracker.findById(id);
+        System.out.println("Найденная заявка" + item + "--");
+    }
+
+    /**
+     * Метод поиска заявки по имени
+     */
+    public void findItemByName() {
+        System.out.println("----Поиск заявки по имени----");
+        String name = this.input.ask("Введите имя заявки");
+        Item[] item = this.tracker.findByName(name);
+        System.out.println("Найденная заявка" + Arrays.toString(item) + "---");
 
     }
 

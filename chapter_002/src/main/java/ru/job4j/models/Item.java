@@ -21,12 +21,16 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", create=" + create +
-                '}';
+        return "Item{"
+                + "id='"
+                + id
+                + '\''
+                + ", name='" + name
+                + '\''
+                + ", description='"
+                + description + '\''
+                + ", create="
+                + create + '}';
     }
 
     public Item(String name, String description) {
