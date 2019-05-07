@@ -144,12 +144,10 @@ public class StartUI {
     public void editItem() {
         System.out.println("-------Редактироваание заявки-------");
         String id = this.input.ask("Введите id заявки");
-        Item item = this.tracker.findById(id);
-        System.out.println("Имя заявки" + item.getName() + "Описание заявки" + item.getDescription() + "----");
         String changedname = this.input.ask("Введите новое имя заявки ");
         String changeddescription = this.input.ask("Введите новое описание");
-        item.setName(changedname);
-        item.setDescription(changeddescription);
+        Item item = new Item(changedname, changeddescription);
+        this.tracker.replace(id, item);
         System.out.println("Новое имя заявки" + item.getName() + "Новое описание заявки" + item.getDescription() + "----");
 
 
