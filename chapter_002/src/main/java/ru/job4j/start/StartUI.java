@@ -147,8 +147,9 @@ public class StartUI {
         String changedname = this.input.ask("Введите новое имя заявки ");
         String changeddescription = this.input.ask("Введите новое описание");
         Item item = new Item(changedname, changeddescription);
-        this.tracker.replace(id, item);
-        System.out.println("Новое имя заявки" + item.getName() + "Новое описание заявки" + item.getDescription() + "----");
+        if (this.tracker.replace(id, item)) {
+            System.out.println("------ Новая заявка с id:" + item.getId() + "------");
+        } else System.out.println("------ Заявка не найдена -----");
 
 
     }
@@ -159,7 +160,10 @@ public class StartUI {
     public void deleteItem() {
         System.out.println("-------Удаление заявки------");
         String id = this.input.ask("Введите id заявки");
-        this.tracker.delete(id);
+        if (this.tracker.delete(id)) {
+            System.out.println("---- Удаление заявки прошло успешно ----");
+        }
+        System.out.println("----- Заявка с таким id не найдена");
 
 
     }
@@ -171,40 +175,43 @@ public class StartUI {
         System.out.println("----- Поиск заявки по id-----");
         String id = this.input.ask("Введите id заявки");
         Item item = this.tracker.findById(id);
-        System.out.println("Найденная заявка" + item + "--");
+        if (item != null) {
+            System.out.println("Найденная заявка" + item + "--");
+        }
+        System.out.println("---- Заявка с таким id не найдена -----");
     }
 
-    /**
-     * Метод поиска заявки по имени
-     */
-    public void findItemByName() {
-        System.out.println("----Поиск заявки по имени----");
-        String name = this.input.ask("Введите имя заявки");
-        Item[] item = this.tracker.findByName(name);
-        System.out.println("Найденная заявка" + Arrays.toString(item) + "---");
+        /**
+         * Метод поиска заявки по имени
+         */
+        public void findItemByName () {
+            System.out.println("----Поиск заявки по имени----");
+            String name = this.input.ask("Введите имя заявки");
+            Item[] item = this.tracker.findByName(name);
+            System.out.println("Найденная заявка" + Arrays.toString(item) + "---");
+
+        }
+
+
+        private void showMenu () {
+            System.out.println("Меню");
+            System.out.println("Добавить новую заявку");
+            System.out.println("Показать все заявки");
+            System.out.println("Редактировать зявку");
+            System.out.println("Удалить заявку");
+            System.out.println("Найти заявку по id");
+            System.out.println("Найти заявку по имени");
+            System.out.println("Выход из программы");
+        }
+
+        /**
+         * Запуск программы
+         *
+         * @param args
+         */
+
+        public static void main (String[]args){
+            new StartUI(new ConsoleInput(), new Tracker()).init();
+        }
 
     }
-
-
-    private void showMenu() {
-        System.out.println("Меню");
-        System.out.println("Добавить новую заявку");
-        System.out.println("Показать все заявки");
-        System.out.println("Редактировать зявку");
-        System.out.println("Удалить заявку");
-        System.out.println("Найти заявку по id");
-        System.out.println("Найти заявку по имени");
-        System.out.println("Выход из программы");
-    }
-
-    /**
-     * Запуск программы
-     *
-     * @param args
-     */
-
-    public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
-    }
-
-}
