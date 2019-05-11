@@ -164,8 +164,11 @@ public class StartUI {
         String id = this.input.ask("Введите id заявки");
         if (this.tracker.delete(id)) {
             System.out.println("---- Удаление заявки прошло успешно ----");
+
         }
-        System.out.println("----- Заявка с таким id не найдена");
+        else {
+            System.out.println("----- Заявка с таким id не найдена");
+        }
 
 
     }
@@ -180,7 +183,9 @@ public class StartUI {
         if (item != null) {
             System.out.println("Найденная заявка" + item + "--");
         }
-        System.out.println("---- Заявка с таким id не найдена -----");
+        else {
+            System.out.println("---- Заявка с таким id не найдена -----");
+        }
     }
 
     /**
