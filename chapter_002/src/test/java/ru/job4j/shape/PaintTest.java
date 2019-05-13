@@ -8,6 +8,8 @@ import java.io.PrintStream;
 import java.util.StringJoiner;
 
 import static org.hamcrest.core.Is.is;
+import org.junit.After;
+import org.junit.Before;
 
 /**
  * @autor Evgeny Ivanov
@@ -16,11 +18,18 @@ import static org.hamcrest.core.Is.is;
  */
 
 public class PaintTest {
+    private final PrintStream stdout = System.out;  // поле содержит дефолтный вывод в консоль
+    private final ByteArrayOutputStream out = new ByteArrayOutputStream();  // буфер для результата
+    @Before
+    public void loadOutput() {
+        System.setOut(new PrintStream(this.out));
+    }
+    @After
+    public void backOutput() {
+        System.setOut(this.stdout);
+    }
     @Test
     public void whenDrawSquare() {
-        PrintStream stdout = System.out; // получаем ссылку на стандартный вывод в консоль
-        ByteArrayOutputStream out = new ByteArrayOutputStream(); // создаем буфер для хранения вывода
-        System.setOut(new PrintStream(out)); // заменяем стандартный вывод на вывод в память для тестирования
         new Paint().draw(new Square()); // выполняем действия пишущие в консоль
         // проверяем результат вычисления
         assertThat(
@@ -34,13 +43,11 @@ public class PaintTest {
                         .toString()
                 )
         );
-        System.setOut(stdout); // возвращаем обратно стандартный вывод в консоль
+
     }
     @Test
     public void whenTriangle() {
-        PrintStream stdout = System.out; // получаем  ссылку на стандартный вывод в консоль
-        ByteArrayOutputStream out = new ByteArrayOutputStream(); // создаем буфер для хранения вывода
-        System.setOut(new PrintStream(out)); // заменям стандартный вывод на вывод в память для тестирования
+
         new Paint().draw(new Triangle());  // выполняем действия пишущие в консоль
         // проверяем результат вычисления
         assertThat(
@@ -53,7 +60,7 @@ public class PaintTest {
                         .toString()
                 )
         );
-        System.setOut(stdout); // возвращаем обратно стандартный вывод в консоль
+
     }
 
 }
