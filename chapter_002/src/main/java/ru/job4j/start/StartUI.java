@@ -116,7 +116,7 @@ public class StartUI {
      * Метод добавления новой заявки в хранилище
      */
     public void createItem() {
-        System.out.println("--------Добавление новой заявки-------");
+        System.out.println("--------Добавление новой заявки--------");
         String name = this.input.ask("Введите имя заявки:");
         String desc = this.input.ask("Введите описание заявки:");
         Item item = new Item(name, desc);
@@ -130,7 +130,7 @@ public class StartUI {
      * Метод отображения всех заявок
      */
     public void showAllItems() {
-        System.out.println("------ Отображение всех заявок------");
+        System.out.println("------0Отображение всех заявок------");
         Item[] items = this.tracker.findAll();
         for (int i = 0; i < items.length; i++) {
             System.out.println(items[i]);
