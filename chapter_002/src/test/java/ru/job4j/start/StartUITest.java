@@ -17,6 +17,28 @@ public class StartUITest {
     private final Tracker tracker = new Tracker();
     private final PrintStream stdout = System.out;
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
+    /**
+     * Перенос строки
+     */
+    private final String ln = System.lineSeparator();
+    private final String menu = this.showMenu();
+    private final String showMenu() {
+        StringBuilder menu = new StringBuilder();
+                menu.append("\r");
+                menu.append ("Меню\r");
+                menu.append("Добавить новую заявку\r");
+                menu.append("Показать все заявки\r");
+                menu.append("Редактировать заявку\r");
+                menu.append("Удалить заявку\r");
+                menu.append("Найти заявку по id\r");
+                menu.append("Найти заявку по имени\r");
+                menu.append("Выход из программы\r");
+
+        return menu.toString();
+
+    }
+
+
 
     @Before
     public void loadOutput() {
@@ -31,19 +53,13 @@ public class StartUITest {
 
     @Test
     public void whenuserEnterShowAllItemsThenOutAllItems() {
-        String[] input = {"1","6"};
-        this.tracker.add(new Item("testname1", "testdesc1"));
-        this.tracker.add(new Item("testname2", "testdesc2"));
-        StringBuilder expected = new StringBuilder();
-        for (Item item: tracker.findAll()) {
-            expected.append(String.format("%-24s%-26s%-10s%n", item.getId(), item.getName(), item.getDescription()));
-        }
-        new StartUI(new StubInput(input), tracker).init();
-        assertTrue(new String(out.toByteArray()).contains(expected));
+        Item one = this.tracker.add(new Item("testname1", "testdesc1"));
+        Item two = this.tracker.add(new Item("testname2", "testdesc2"));
+        Input input = new StubInput(new String[]{"1", "6"});
+        String showalls = "------Отображение всех заявок------";
+        assertThat(new String(out.toByteArray()), is(String.format("%s\r%s\r-testname1, testdesk1\r%s", menu, showalls, one.getName(), one.getDescription(), menu)));
 
-
-            }
-
+    }
 
 
     @Test
