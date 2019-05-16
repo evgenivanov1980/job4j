@@ -7,6 +7,7 @@ import ru.job4j.models.Item;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
 import java.util.StringJoiner;
 
 import static org.junit.Assert.*;
@@ -116,12 +117,12 @@ public class StartUITest {
     public void whenFindItemByNameThenWeHaveFoundItem() {
         Item one = tracker.add(new Item("testname1", "testdescription1"));
         Item two = tracker.add(new Item("testname2", "testdescription2"));
-        Input input = new StubInput(new String[]{"5", two.getName(), "6"});
+       Input input = new StubInput(new String[]{"5", two.getName(), "6"});
         new StartUI(input, tracker).init();
         StringBuilder showitemsbynames = new StringBuilder(menu);
         showitemsbynames.append("----Поиск заявки по имени----").append(ln);
         showitemsbynames.append("Найденная заявка");
-        showitemsbynames.append(two).append(ln);
+        showitemsbynames.append(Arrays.toString(new Item[]{two})).append(ln);
         showitemsbynames.append(menu);
         assertThat(new String(out.toByteArray()), is(showitemsbynames.toString()));
 
