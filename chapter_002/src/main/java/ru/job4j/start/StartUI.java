@@ -177,11 +177,11 @@ public class StartUI {
      * Метод поиска заявки по id
      */
     public void findItemById() {
-        System.out.println("----- Поиск заявки по id-----");
+        System.out.println("-----Поиск заявки по id-----");
         String id = this.input.ask("Введите id заявки");
         Item item = this.tracker.findById(id);
         if (item != null) {
-            System.out.println("Найденная заявка" + item + "--");
+            System.out.println("Найденная заявка" + item);
         }
         else {
             System.out.println("---- Заявка с таким id не найдена -----");
@@ -195,7 +195,7 @@ public class StartUI {
         System.out.println("----Поиск заявки по имени----");
         String name = this.input.ask("Введите имя заявки");
         Item[] item = this.tracker.findByName(name);
-        System.out.println("Найденная заявка" + Arrays.toString(item) + "---");
+        System.out.println("Найденная заявка" + Arrays.toString(item));
 
     }
 
