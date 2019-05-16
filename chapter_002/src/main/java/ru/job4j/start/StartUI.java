@@ -130,7 +130,7 @@ public class StartUI {
      * Метод отображения всех заявок
      */
     public void showAllItems() {
-        System.out.println("------0Отображение всех заявок------");
+        System.out.println("------Отображение всех заявок------");
         Item[] items = this.tracker.findAll();
         for (int i = 0; i < items.length; i++) {
             System.out.println(items[i]);
@@ -203,7 +203,7 @@ public class StartUI {
         System.out.println("Меню");
         System.out.println("Добавить новую заявку");
         System.out.println("Показать все заявки");
-        System.out.println("Редактировать зявку");
+        System.out.println("Редактировать заявку");
         System.out.println("Удалить заявку");
         System.out.println("Найти заявку по id");
         System.out.println("Найти заявку по имени");

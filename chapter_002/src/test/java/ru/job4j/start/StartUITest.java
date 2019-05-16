@@ -11,7 +11,7 @@ import java.util.StringJoiner;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertTrue;
+
 
 public class StartUITest {
     private final Tracker tracker = new Tracker();
@@ -24,15 +24,14 @@ public class StartUITest {
     private final String menu = this.showMenu();
     private final String showMenu() {
         StringBuilder menu = new StringBuilder();
-                menu.append("\r");
-                menu.append ("Меню\r");
-                menu.append("Добавить новую заявку\r");
-                menu.append("Показать все заявки\r");
-                menu.append("Редактировать заявку\r");
-                menu.append("Удалить заявку\r");
-                menu.append("Найти заявку по id\r");
-                menu.append("Найти заявку по имени\r");
-                menu.append("Выход из программы\r");
+                menu.append ("Меню").append(ln);
+                menu.append("Добавить новую заявку").append(ln);
+                menu.append("Показать все заявки").append(ln);
+                menu.append("Редактировать заявку").append(ln);
+                menu.append("Удалить заявку").append(ln);
+                menu.append("Найти заявку по id").append(ln);
+                menu.append("Найти заявку по имени").append(ln);
+                menu.append("Выход из программы").append(ln);
 
         return menu.toString();
 
@@ -56,8 +55,14 @@ public class StartUITest {
         Item one = this.tracker.add(new Item("testname1", "testdesc1"));
         Item two = this.tracker.add(new Item("testname2", "testdesc2"));
         Input input = new StubInput(new String[]{"1", "6"});
-        String showalls = "------Отображение всех заявок------";
-        assertThat(new String(out.toByteArray()), is(String.format("%s\r%s\r-testname1, testdesk1\r%s", menu, showalls, one.getName(), one.getDescription(), menu)));
+        new StartUI(input, tracker).init();
+        StringBuilder showalls = new StringBuilder(menu);
+        showalls.append("------Отображение всех заявок------").append(ln);
+        showalls.append(one).append(ln);
+        showalls.append(two).append(ln);
+        showalls.append(menu);
+        assertThat(new String(out.toByteArray()), is(showalls.toString()));
+
 
     }
 
