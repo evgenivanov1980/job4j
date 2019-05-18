@@ -165,8 +165,7 @@ public class StartUI {
         if (this.tracker.delete(id)) {
             System.out.println("---- Удаление заявки прошло успешно ----");
 
-        }
-        else {
+        } else {
             System.out.println("----- Заявка с таким id не найдена");
         }
 
@@ -182,8 +181,7 @@ public class StartUI {
         Item item = this.tracker.findById(id);
         if (item != null) {
             System.out.println("Найденная заявка" + item);
-        }
-        else {
+        } else {
             System.out.println("---- Заявка с таким id не найдена -----");
         }
     }
