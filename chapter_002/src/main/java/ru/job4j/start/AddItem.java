@@ -8,6 +8,7 @@ public class AddItem implements UserAction {
     public int key() {
         return 0;
     }
+
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("-----Добавление новой заявки-----");
@@ -21,8 +22,9 @@ public class AddItem implements UserAction {
 
 
     }
+
     @Override
     public String info() {
-        return "Добавить новую заявку." ;
+        return "Добавить новую заявку";
     }
 }

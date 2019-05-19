@@ -19,6 +19,6 @@ public class ShowAll implements UserAction {
     }
     @Override
     public String info() {
-        return "Отобразить все заявки";
+        return "Показать все заявки";
     }
 }

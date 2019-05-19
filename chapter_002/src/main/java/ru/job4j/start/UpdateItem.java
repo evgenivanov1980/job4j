@@ -26,6 +26,6 @@ public class UpdateItem implements UserAction {
 
     @Override
     public String info() {
-        return "Отредактировать заявку";
+        return "Редактировать заявку";
     }
 }
