@@ -6,12 +6,12 @@ public class MenuTracker {
     /**
      * @param хранит ссылку на объект
      */
-    private Input input;
+    private final Input input;
 
     /**
      * @param хранит ссылку на объект
      */
-    private Tracker tracker;
+    private final Tracker tracker;
 
     /**
      * @param хранит ссылку на массив UserAction

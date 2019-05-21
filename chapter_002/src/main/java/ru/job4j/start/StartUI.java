@@ -3,7 +3,9 @@ package ru.job4j.start;
 import ru.job4j.models.Task;
 import ru.job4j.models.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * @version $ID$
@@ -17,13 +19,14 @@ public class StartUI {
      * Получение данных от пользователя
      */
 
-    private final Input input;
+    private Input input;
 
     /**
      * Хранилище заявок
      */
 
-    private final Tracker tracker;
+    private Tracker tracker;
+
 
     /**
      * Конструктор инициализирующий поля
@@ -44,10 +47,15 @@ public class StartUI {
 
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
         menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+
+        }
         do {
             menu.show();
-            menu.select(Integer.valueOf(input.ask("select:")));
+            menu.select(input.ask("select:", range));
         }
         while (!"y".equals(this.input.ask("Exit?(y):")));
 
@@ -61,7 +69,7 @@ public class StartUI {
      * @param args
      */
     public static void main(String[] args) {
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 
 }
