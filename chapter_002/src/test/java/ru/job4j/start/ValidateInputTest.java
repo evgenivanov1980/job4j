@@ -39,5 +39,19 @@ public class ValidateInputTest {
 
 
     }
+    @Test
+    public void whenInputNotHasPointMenu() {
+        ValidateInput input = new ValidateInput(new StubInput(new String[] {"90", "1"}));
+        List<Integer> range = new ArrayList<>();
+        range.add(1);
+        input.ask("Enter", range);
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Пожалуйста введите ключ из меню%n")
+                )
+        );
+    }
+
 
 }

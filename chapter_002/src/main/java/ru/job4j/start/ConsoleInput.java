@@ -30,12 +30,12 @@ public class ConsoleInput implements Input {
 
         }
 
-        if (exist) {
-            return key;
-        } else {
-
+        if (!exist) {
             throw new MenuOutException("Выход за пределы пунктов меню");
         }
-    }
 
+        return key;
+    }
 }
+
+

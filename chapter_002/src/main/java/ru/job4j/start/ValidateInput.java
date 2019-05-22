@@ -15,6 +15,7 @@ public class ValidateInput extends ConsoleInput {
         return this.input.ask(question);
     }
 
+    @Override
     public int ask(String question, List<Integer> range) {
         boolean invalid = true;
         int value = -1;
@@ -23,13 +24,12 @@ public class ValidateInput extends ConsoleInput {
 
             try {
                 value = super.ask(question, range);
+
                 invalid = false;
 
-            }
-            catch (MenuOutException moe) {
+            } catch (MenuOutException moe) {
                 System.out.println("Пожалуйста введите ключ из меню");
-            }
-            catch (NumberFormatException nfe) {
+            } catch (NumberFormatException nfe) {
                 System.out.println("Пожалуйста, введите корректные данные снова");
 
             }
