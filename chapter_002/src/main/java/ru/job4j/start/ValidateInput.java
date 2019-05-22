@@ -3,6 +3,18 @@ package ru.job4j.start;
 import java.util.List;
 
 public class ValidateInput extends ConsoleInput {
+
+    private final Input input;
+
+    public ValidateInput(Input input) {
+        this.input = input;
+    }
+
+    @Override
+    public String ask(String question) {
+        return this.input.ask(question);
+    }
+
     public int ask(String question, List<Integer> range) {
         boolean invalid = true;
         int value = -1;
