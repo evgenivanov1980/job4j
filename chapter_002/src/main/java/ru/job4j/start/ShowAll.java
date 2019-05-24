@@ -1,12 +1,13 @@
 package ru.job4j.start;
 
-import ru.job4j.models.*;
+        import ru.job4j.models.*;
 
-public class ShowAll implements UserAction {
-    @Override
-    public int key() {
-        return 1;
+public class ShowAll extends BaseAction {
+
+    public ShowAll(int key, String name) {
+        super(key, name);
     }
+
 
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -17,8 +18,5 @@ public class ShowAll implements UserAction {
         }
 
     }
-    @Override
-    public String info() {
-        return "Показать все заявки";
-    }
+
 }

@@ -29,7 +29,7 @@ public class ValidateInputTest {
         ValidateInput input = new ValidateInput(new StubInput(new String[] {"invalid", "1"}));
         List<Integer> range = new ArrayList<>();
         range.add(1);
-        input.ask("Enter", range );
+        input.ask("Enter", range);
         assertThat(
                 this.mem.toString(),
                 is(

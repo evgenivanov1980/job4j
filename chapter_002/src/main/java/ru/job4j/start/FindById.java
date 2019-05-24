@@ -2,11 +2,12 @@ package ru.job4j.start;
 
 import ru.job4j.models.*;
 
-public class FindById implements UserAction {
-    @Override
-    public int key() {
-        return 4;
+public class FindById extends BaseAction {
+
+    public FindById(int key, String name) {
+        super(key, name);
     }
+
 
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -20,9 +21,5 @@ public class FindById implements UserAction {
         }
     }
 
-    @Override
-    public String info() {
-        return "Найти заявку по id";
-    }
 
 }

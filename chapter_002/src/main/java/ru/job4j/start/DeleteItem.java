@@ -1,10 +1,11 @@
 package ru.job4j.start;
 
-public class DeleteItem implements UserAction {
-    @Override
-    public int key() {
-        return 3;
+public class DeleteItem extends BaseAction {
+
+    public DeleteItem(int key, String name) {
+        super(key, name);
     }
+
 
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -17,8 +18,5 @@ public class DeleteItem implements UserAction {
         }
     }
 
-    @Override
-    public String info() {
-        return "Удалить заявку";
-    }
+
 }

@@ -26,12 +26,12 @@ public class StartUITest {
 
     private final String showMenu() {
         StringBuilder menu = new StringBuilder();
-        menu.append("Добавить новую заявку").append(ln);
-        menu.append("Показать все заявки").append(ln);
-        menu.append("Редактировать заявку").append(ln);
-        menu.append("Удалить заявку").append(ln);
-        menu.append("Найти заявку по id").append(ln);
-        menu.append("Найти заявку по имени").append(ln);
+        menu.append("0 Добавить новую заявку").append(ln);
+        menu.append("1 Редактировать заявку").append(ln);
+        menu.append("2 Показать все заявки").append(ln);
+        menu.append("3 Удалить заявку").append(ln);
+        menu.append("4 Найти заявку по id").append(ln);
+        menu.append("5 Найти заявку по имени").append(ln);
 
 
         return menu.toString();
@@ -54,7 +54,7 @@ public class StartUITest {
     public void whenuserEnterShowAllItemsThenOutAllItems() {
         Item one = this.tracker.add(new Item("testname1", "testdesc1"));
         Item two = this.tracker.add(new Item("testname2", "testdesc2"));
-        Input input = new StubInput(new String[]{"1", "y"});
+        Input input = new StubInput(new String[]{"2", "y"});
         new StartUI(input, tracker).init();
         StringBuilder showalls = new StringBuilder(menu);
         showalls.append("------Отображение всех заявок------").append(ln);
@@ -79,7 +79,7 @@ public class StartUITest {
     @Test
     public void whenUpdateYhenTrackerHasUpdateValue() {
         Item item = tracker.add(new Item("testname", "testdescription")); // напрямую добавляем заявку
-        Input input = new StubInput(new String[]{"2", item.getId(), "testreplace", "replaceitem", "y"}); //создаем staubInput с последовательностью действий (производим замену заявки)
+        Input input = new StubInput(new String[]{"1", item.getId(), "testreplace", "replaceitem", "y"}); //создаем staubInput с последовательностью действий (производим замену заявки)
         new StartUI(input, tracker).init(); // создаем  startUI и вызываем метод init
         assertThat(tracker.findById(item.getId()).getName(), is("testreplace"));
 

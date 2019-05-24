@@ -3,11 +3,12 @@ package ru.job4j.start;
 import ru.job4j.models.Item;
 import ru.job4j.start.StartUI;
 
-public class AddItem implements UserAction {
-    @Override
-    public int key() {
-        return 0;
+public class AddItem extends BaseAction {
+
+    public AddItem(int key, String name) {
+        super(key, name);
     }
+
 
     @Override
     public void execute(Input input, Tracker tracker) {
@@ -23,8 +24,4 @@ public class AddItem implements UserAction {
 
     }
 
-    @Override
-    public String info() {
-        return "Добавить новую заявку";
-    }
 }
