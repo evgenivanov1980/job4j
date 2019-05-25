@@ -7,7 +7,7 @@ public class Exit extends BaseAction {
 
     public Exit(StartUI input, int key, String name) {
         super(key, name);
-        ui =input;
+        this.ui = input;
     }
 
     @Override

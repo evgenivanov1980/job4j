@@ -31,6 +31,7 @@ public class StartUITest {
         menu.append("3 Удалить заявку").append(ln);
         menu.append("4 Найти заявку по id").append(ln);
         menu.append("5 Найти заявку по имени").append(ln);
+        menu.append("6 Выйти из программы").append(ln);
 
 
         return menu.toString();
@@ -59,6 +60,7 @@ public class StartUITest {
         showalls.append("------Отображение всех заявок------").append(ln);
         showalls.append(one).append(ln);
         showalls.append(two).append(ln);
+        showalls.append(menu).append(ln);
 
         assertThat(new String(out.toByteArray()), is(showalls.toString()));
 
@@ -105,6 +107,7 @@ public class StartUITest {
         showitembyid.append("-----Поиск заявки по id-----").append(ln);
         showitembyid.append("Найденная заявка");
         showitembyid.append(two).append(ln);
+        showitembyid.append(menu).append(ln);
         assertThat(new String(out.toByteArray()), is(showitembyid.toString()));
 
 
@@ -120,6 +123,7 @@ public class StartUITest {
         showitemsbynames.append("----Поиск заявки по имени----").append(ln);
         showitemsbynames.append("Найденная заявка:");
         showitemsbynames.append(Arrays.toString(new Item[]{two})).append(ln);
+        showitemsbynames.append(menu).append(ln);
         assertThat(new String(out.toByteArray()), is(showitemsbynames.toString()));
 
     }
