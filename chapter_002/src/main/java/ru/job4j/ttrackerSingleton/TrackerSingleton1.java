@@ -1,10 +1,5 @@
-package ru.job4j.TrackerSingleton;
+package ru.job4j.ttrackerSingleton;
 
-
-
-import ru.job4j.models.Item;
-
-import java.util.Arrays;
 
 public enum  TrackerSingleton1 {
     INSTANCE;

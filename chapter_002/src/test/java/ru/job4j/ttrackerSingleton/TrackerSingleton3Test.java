@@ -1,16 +1,17 @@
-package ru.job4j.TrackerSingleton;
+package ru.job4j.ttrackerSingleton;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.*;
 
 public class TrackerSingleton3Test {
     @Test
     public void whenCreatingObjectSingleton3ThenHeOnlyOne() {
         TrackerSingleton3 tracker1 = TrackerSingleton3.getInstance();
         TrackerSingleton3 tracker2 = TrackerSingleton3.getInstance();
-        assertThat(tracker1, is(tracker2));
+        if (tracker1 == tracker2) {
+            System.out.println("У нас только один объект Singleton");
+        }
     }
 
 }

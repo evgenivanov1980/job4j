@@ -1,4 +1,4 @@
-package ru.job4j.TrackerSingleton;
+package ru.job4j.ttrackerSingleton;
 
 /**
  * Энергичная загрузка (Eager loading) - загружает объект сразу после старта виртуальной машины.

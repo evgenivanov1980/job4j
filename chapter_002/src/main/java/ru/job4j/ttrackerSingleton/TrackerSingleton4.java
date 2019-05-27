@@ -1,4 +1,4 @@
-package ru.job4j.TrackerSingleton;
+package ru.job4j.ttrackerSingleton;
 
 import ru.job4j.start.Tracker;
 
