@@ -19,11 +19,16 @@ public enum Cell {
     }
 
 
-    public int getX() {
-        return x;
-    }
+   public static Cell coordinates(int x, int y) {
+        Cell result = null ;
+        for (Cell cell : Cell.values() ) {
+            if (cell.x == x && cell.y == y) {
+                result = cell;
+                break;
 
-    public int getY() {
-        return y;
-    }
+            }
+
+        }
+        return result;
+   }
 }
