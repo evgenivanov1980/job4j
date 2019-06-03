@@ -23,8 +23,8 @@ public class BishopBlack implements Figure {
     @Override
     public Cell[] way(Cell source, Cell dest) {
         Cell[] steps = new Cell[8];
-        int deltaX = Math.abs(dest.x - source.x);
-        int deltaY = Math.abs(dest.y - source.y);
+        int deltaX = dest.x - source.x;
+        int deltaY = dest.y - source.y;
 
         if (Math.abs(deltaX) != Math.abs(deltaY)) {
             System.out.println("не диагональ");
@@ -35,7 +35,7 @@ public class BishopBlack implements Figure {
             int ky = deltaY/Math.abs(deltaY);
 
             for (int index = 0; index < Math.abs(deltaX); index++ ) {
-                steps[index] = Cell.coordinates(source.x - kX*(index + 1), source.y - ky*(index + 1));
+                steps[index] = Cell.coordinates(source.x + kX*(index + 1), source.y + ky*(index + 1));
 
 
             }
