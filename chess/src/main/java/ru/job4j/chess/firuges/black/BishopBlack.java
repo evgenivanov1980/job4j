@@ -1,5 +1,6 @@
 package ru.job4j.chess.firuges.black;
 
+import ru.job4j.chess.ImpossibleMoveException;
 import ru.job4j.chess.firuges.Cell;
 import ru.job4j.chess.firuges.Figure;
 
@@ -22,23 +23,25 @@ public class BishopBlack implements Figure {
 
     @Override
     public Cell[] way(Cell source, Cell dest) {
-        Cell[] steps = new Cell[8];
         int deltaX = dest.x - source.x;
         int deltaY = dest.y - source.y;
+        Cell[] steps = new Cell[Math.abs(deltaX)];
 
         if (Math.abs(deltaX) != Math.abs(deltaY)) {
-            System.out.println("не диагональ");
+            throw new ImpossibleMoveException("Фигура так не ходит");
+
+
         }
 
 
-            int kX = deltaX/Math.abs(deltaX);
-            int ky = deltaY/Math.abs(deltaY);
+        int kX = deltaX / Math.abs(deltaX);
+        int ky = deltaY / Math.abs(deltaY);
 
-            for (int index = 0; index < Math.abs(deltaX); index++ ) {
-                steps[index] = Cell.coordinates(source.x + kX*(index + 1), source.y + ky*(index + 1));
+        for (int index = 0; index < Math.abs(deltaX); index++) {
+            steps[index] = Cell.coordinates(source.x + kX * (index + 1), source.y + ky * (index + 1));
 
 
-            }
+        }
 
         return steps;
     }

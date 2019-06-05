@@ -20,17 +20,42 @@ public class Logic {
         this.figures[this.index++] = figure;
     }
 
-    public boolean move(Cell source, Cell dest) {
+    public boolean move(Cell source, Cell dest) throws OccupiedWayException, FiguraNotFoundException, ImpossibleMoveException {
         boolean rst = false;
         int index = this.findBy(source);
         if (index != -1) {
             Cell[] steps = this.figures[index].way(source, dest);
+            if (waycheck(source, dest)) {
+                throw new OccupiedWayException("Невозможный ход, на пути фигуры есть другая фигура");
+
+            }
             if (steps.length > 0 && steps[steps.length - 1].equals(dest)) {
                 rst = true;
                 this.figures[index] = this.figures[index].copy(dest);
             }
+
+        }
+        new FiguraNotFoundException("Фигура отсутствует");
+
+
+        return rst;
+
+    }
+
+
+    public boolean waycheck(Cell source, Cell dest) {
+        boolean rst = false;
+        int index = this.findBy(source);
+        Cell[] steps = this.figures[index].way(source, dest);
+        for (Cell cell : steps) {
+            if (findBy(cell) != -1) {
+               rst = true;
+                break;
+            }
         }
         return rst;
+
+
     }
 
     public void clean() {
@@ -48,6 +73,7 @@ public class Logic {
                 break;
             }
         }
+
         return rst;
     }
 }
