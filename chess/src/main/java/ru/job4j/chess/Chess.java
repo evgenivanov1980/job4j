@@ -73,15 +73,11 @@ public class Chess extends Application {
                     } catch (OccupiedWayException o) {
                         System.out.println("" + o);
 
-                    }
-                    catch (FiguraNotFoundException f) {
+                    } catch (FiguraNotFoundException f) {
                         System.out.println("" + f);
-                    }
-                    catch (ImpossibleMoveException i) {
+                    } catch (ImpossibleMoveException i) {
                         System.out.println("" + i);
                     }
-
-
 
 
                 }

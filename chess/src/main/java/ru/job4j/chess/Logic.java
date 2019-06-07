@@ -35,7 +35,7 @@ public class Logic {
             }
 
         }
-        new FiguraNotFoundException("Фигура отсутствует");
+
 
 
         return rst;
@@ -72,6 +72,9 @@ public class Logic {
                 rst = index;
                 break;
             }
+        }
+        if (rst == -1) {
+            throw new FiguraNotFoundException ("Фигура отсутствует");
         }
 
         return rst;
