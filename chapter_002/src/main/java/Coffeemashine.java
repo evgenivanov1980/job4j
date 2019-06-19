@@ -11,7 +11,7 @@ public class Coffeemashine {
         result = new int[coins.length];
         for (int i = 0; i < coins.length; i++) {
             if (oddmaney >= coins[coins.length - i -1]) {
-                result[i] = coins[coins.length - i -1];
+                result[index] = coins[coins.length - i -1];
                 oddmaney = oddmaney % coins[coins.length - i -1];
                 index++;
 
@@ -19,6 +19,7 @@ public class Coffeemashine {
             }
 
         }
+
 
 
 

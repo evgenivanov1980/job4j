@@ -7,8 +7,8 @@ public class CoffeemashineTest {
     @Test
     public void whenChanges15() {
         Coffeemashine coffeemashine = new Coffeemashine();
-        int[] result = coffeemashine.changes(50, 15);
-        int[] expect = new int[] {10, 5};
+        int[] result = coffeemashine.changes(101, 50);
+        int[] expect = new int[] {10, 1};
         assertThat(result, is(expect));
     }
 
