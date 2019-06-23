@@ -20,4 +20,16 @@ public class CoffeemashineTest {
         assertThat(result, is(expect));
     }
 
+    @Test
+    public void whenChanges6() {
+        Coffeemashine coffeemashine = new Coffeemashine();
+        int[] result = coffeemashine.changes(12, 6);
+        int[] expect = new int[] {5, 1};
+        assertThat(result, is(expect));
+    }
+
+
+
+
+
 }
