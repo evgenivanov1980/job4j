@@ -7,20 +7,20 @@ public class Coffeemashine {
     public int[] changes(int value, int price) {
         int index = 0;
         int oddmoney = value - price;
-        int[] coins = new int[] {1, 2, 5 ,10};
-        result = new int[coins.length];
+        int[] coins = new int[]{1, 2, 5, 10};
+        result = new int[oddmoney];
         for (int i = 0; i < coins.length; i++) {
-            if (oddmoney >= coins[coins.length - i -1]) {
+            while (oddmoney >= coins[coins.length - i - 1]) {
                 result[index] = coins[coins.length - i -1];
-                oddmoney = oddmoney % coins[coins.length - i -1];
+                oddmoney = oddmoney - coins[coins.length - i -1];
                 index++;
 
-
+            }
+            if (oddmoney == 0) {
+                break;
             }
 
         }
-
-
 
 
         return Arrays.copyOf(result, index);

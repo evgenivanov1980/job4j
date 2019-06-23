@@ -20,13 +20,11 @@ public class Cashmashina {
             if (note > values[values.length - i - 1]) {
                 cnt[i] = note - values[values.length - i - 1];
 
-            }
-            else if (note - values[values.length - i - 1]  == 0) {
+            } else if (note - values[values.length - i - 1] == 0) {
                 cnt[i] = values[values.length - i - 1];
                 break;
 
             }
-
 
 
         }
