@@ -19,11 +19,12 @@ public class PriorityQueue {
         for (Task task1 : tasks) {
             if (task1.getPriorety() < task.getPriorety()) {
                 k++;
-                break;
+
 
 
 
             }
+            else {break;}
 
 
 
@@ -32,6 +33,7 @@ public class PriorityQueue {
 
 
         }
+
 
         tasks.add(k, task);
 
