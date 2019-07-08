@@ -21,22 +21,15 @@ public class PriorityQueue {
                 k++;
 
 
-
-
+            } else {
+                break;
             }
-            else {break;}
-
-
-
-
-
 
 
         }
 
 
         tasks.add(k, task);
-
 
 
     }
