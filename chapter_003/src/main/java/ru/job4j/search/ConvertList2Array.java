@@ -1,5 +1,6 @@
 package ru.job4j.search;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertList2Array {
@@ -28,4 +29,17 @@ public class ConvertList2Array {
 
         return array;
     }
+
+    public List<Integer> convert(List<int[]> list) {
+        List<Integer> roster = new ArrayList<>();
+        for (int[] roll : list) {
+            for (int element : roll) {
+                roster.add(element);
+            }
+
+        }
+        return roster;
+    }
 }
+
+
