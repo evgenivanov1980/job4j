@@ -2,6 +2,8 @@ package ru.job4j.start;
 
         import ru.job4j.models.*;
 
+        import java.util.List;
+
 public class ShowAll extends BaseAction {
 
     public ShowAll(int key, String name) {
@@ -12,9 +14,9 @@ public class ShowAll extends BaseAction {
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------Отображение всех заявок------");
-        Item[] items = tracker.findAll();
-        for (int i = 0; i < items.length; i++) {
-            System.out.println(items[i]);
+        List<Item> items = tracker.findAll();
+        for (Item item : items) {
+            System.out.println(item);
         }
 
     }

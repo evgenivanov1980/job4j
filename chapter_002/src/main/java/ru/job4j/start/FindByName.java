@@ -3,6 +3,7 @@ package ru.job4j.start;
 import ru.job4j.models.*;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class FindByName extends BaseAction {
 
@@ -15,8 +16,8 @@ public class FindByName extends BaseAction {
     public void execute(Input input, Tracker tracker) {
         System.out.println("----Поиск заявки по имени----");
         String name = input.ask("Введите имя заявки");
-        Item[] item = tracker.findByName(name);
-        System.out.println("Найденная заявка:" + Arrays.toString(item));
+        List<Item> item = tracker.findByName(name);
+        System.out.println("Найденная заявка:" + item);
 
     }
 

@@ -10,7 +10,7 @@ public class Tracker {
 
 
 
-    private Item[] items = new Item[10];
+    private List<Item> items = new ArrayList<>();
     private int position = 0;
     private static final Random RN = new Random();
 
@@ -27,7 +27,7 @@ public class Tracker {
 
     public Item add(Item item) {
         item.setId(this.generatedId());
-        this.items[position++] = item;
+        items.add(position++, item);
         return item;
     }
 
@@ -42,9 +42,9 @@ public class Tracker {
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            if (this.items[i].getId().equals(id)) {
+            if (items.get(i).getId().equals(id)) {
                 item.setId(id);
-                items[i] = item;
+                items.set(i, item);
                 result = true;
                 break;
 
@@ -68,10 +68,10 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
-        for (int i = 0; i < position; i++) {
-            if (this.items[i].getId().equals(id)) {
-                System.arraycopy(items, i + 1, items, i, items.length - i - 1);
-                items[position--] = null;
+        for (Item item : items) {
+            if (item.getId().equals(id)) {
+                items.remove(item);
+                this.position--;
                 result = true;
                 break;
 
@@ -89,8 +89,8 @@ public class Tracker {
      * @return возвращет массив без значений null.
      */
 
-    public Item[] findAll() {
-        return Arrays.copyOf(items, position);
+    public List<Item> findAll() {
+        return items;
     }
 
 
@@ -100,20 +100,19 @@ public class Tracker {
      *
      * @param key имя заявки которую нужно найти в массиве items и скопировать в результирующий массив, найденную
      *            заявку.
-     * @return метод возвращает массив с найденными по имени key заявками
+     * @return метод возвращает список с найденными по имени key заявками
      */
 
-    public Item[] findByName(String key) {
-        Item[] resultitems = new Item[position];
-        int index = 0;
-        for (int i = 0; i < position; i++) {
-            if (key.equals(items[i].getName())) {
-                resultitems[index] = items[i];
-                index++;
+    public List<Item> findByName(String key) {
+        List<Item> resultitems = new ArrayList<>();
+        for (Item item : items) {
+            if (item.getName().contains(key)) {
+                resultitems.add(item);
+
 
             }
         }
-        return Arrays.copyOf(resultitems, index);
+        return resultitems;
 
     }
 
@@ -133,10 +132,10 @@ public class Tracker {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 
-    public Item[] getAll() {
-        Item[] result = new Item[this.position];
-        for (int i = 0; i != this.position; i++) {
-            result[i] = this.items[i];
+    public List<Item> getAll() {
+        List<Item> result = new ArrayList<>();
+        for (Item item : items) {
+            result.add(item);
         }
         return result;
     }

@@ -8,6 +8,7 @@ import ru.job4j.models.Item;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
@@ -72,7 +73,7 @@ public class StartUITest {
     public void whenUserAddItemThenTrackerHasNewItemWithSomeName() {
         Input input = new StubInput(new String[]{"0", "testname", "testdesc", "6"}); // создаем Stubinput с последовательностью действий
         new StartUI(input, this.tracker).init(); // создаем startUI и вызываем метод init
-        assertThat(tracker.getAll()[0].getName(), is("testname"));
+        assertThat(tracker.getAll().get(0), is("testname"));
 
 
     }
@@ -92,8 +93,8 @@ public class StartUITest {
         Item two = tracker.add(new Item("testname2", "testdescription2")); // добавляем вторую заявку
         Input input = new StubInput(new String[]{"3", one.getId(), "6"});  // создаем stubInput c последовательностью дейсвий (производим удление заявки)
         new StartUI(input, tracker).init();  //создаем startUI и вызываем метод init
-        Item[] result = tracker.findAll();
-        assertThat(result[0].getName(), is("testname2"));
+        List<Item> result = tracker.findAll();
+        assertThat(result.get(0).getName(), is("testname2"));
 
     }
 
