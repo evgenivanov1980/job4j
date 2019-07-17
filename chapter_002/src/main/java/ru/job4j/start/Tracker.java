@@ -68,9 +68,9 @@ public class Tracker {
 
     public boolean delete(String id) {
         boolean result = false;
-        for (Item item : items) {
-            if (item.getId().equals(id)) {
-                items.remove(item);
+        for (int i = 0; i < position; i++) {
+            if (items.get(i).getId().equals(id)) {
+                items.remove(i);
                 this.position--;
                 result = true;
                 break;
