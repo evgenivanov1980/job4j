@@ -1,0 +1,36 @@
+package ru.job4j.usersort;
+
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.TreeSet;
+
+import static org.junit.Assert.*;
+import static org.hamcrest.core.Is.is;
+
+public class SortUserTest {
+    @Test
+    public void whenHaveListThenSortedAtAge() {
+        User userone = new User("Evgen", "25");
+        User usertwo = new User("Lena", "29");
+        User userthree = new User("Misha", "26");
+        List<User> users = new ArrayList<>();
+        users.add(userone);
+        users.add(usertwo);
+        users.add(userthree);
+        SortUser sort = new SortUser();
+        TreeSet<User> expected = new TreeSet<>();
+        expected.add(userone);
+        expected.add(userthree);
+        expected.add(usertwo);
+        assertThat(sort.sort(users), is(expected));
+
+
+
+
+
+
+    }
+
+}
