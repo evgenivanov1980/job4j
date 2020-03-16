@@ -30,7 +30,7 @@ public class SortUser {
         list.sort(new Comparator<User>() {
             @Override
             public int compare(User o1, User o2) {
-                int user1namelength = ( o1.getName().length());
+                int user1namelength = (o1.getName().length());
                 int user2namelength = (o2.getName().length());
                 int result = Integer.compare(user1namelength, user2namelength);
 

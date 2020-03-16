@@ -14,8 +14,6 @@ public class User implements Comparable<User> {
     }
 
 
-
-
     public String getName() {
         return name;
     }
@@ -40,11 +38,14 @@ public class User implements Comparable<User> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         User user = (User) o;
-        return name.equals(user.name) &&
-                age.equals(user.age);
+        return name.equals(user.name) && age.equals(user.age);
     }
 
     @Override

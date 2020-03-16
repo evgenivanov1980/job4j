@@ -75,7 +75,7 @@ public class Logic {
             row = 0;
             col = 0;
             for (int j = 0; j < table.length; j++) {
-                row += table[i][j] ;
+                row += table[i][j];
                 col += table[j][i];
 
             }
@@ -90,8 +90,6 @@ public class Logic {
 
 
     }
-
-
 
 
     public int[][] convert() {
