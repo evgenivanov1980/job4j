@@ -30,8 +30,8 @@ public class StringCompareTest {
     public void whenLeftGreaterThanRightResultShouldBePositive() {
         StringCompare compare = new StringCompare();
         int rst = compare.compare(
-                "Ivanova",
-                "Petrov");
+                "Petrov",
+                "Ivanova");
         assertThat(rst, greaterThan(0));
     }
 
@@ -51,6 +51,17 @@ public class StringCompareTest {
                 "Patrov",
                 "Petrov");
         assertThat(rst, lessThan(0));
+    }
+
+    @Test
+    public void firstCharOfLeftGreaterThanRightShouldBePositive() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "aa",
+                "z");
+        assertThat(rst, is("aa".compareTo("z")));
+
+
     }
 
 
