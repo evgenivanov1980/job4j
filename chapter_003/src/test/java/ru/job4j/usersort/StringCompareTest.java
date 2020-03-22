@@ -7,7 +7,6 @@ import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
 
-
 public class StringCompareTest {
     @Test
     public void whenStringAreaEqualThenZero() {
