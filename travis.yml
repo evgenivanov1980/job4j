@@ -21,4 +21,4 @@ notifications:
 
     ev:
       global:
-        - CODECOV_TOKEN = "5e3406a1-0061-41bb-875c-131668f9e5c2"
+        - CODECOV_TOKEN = 5e3406a1-0061-41bb-875c-131668f9e5c2
