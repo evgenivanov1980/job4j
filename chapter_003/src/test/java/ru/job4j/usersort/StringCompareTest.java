@@ -64,6 +64,15 @@ public class StringCompareTest {
 
     }
 
+    @Test
+    public void firstCharLeftLessThanRightShouldBeNegative() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                "a",
+                "zz");
+        assertThat(rst, is("a".compareTo("zz")));
+    }
+
 
 
 }
