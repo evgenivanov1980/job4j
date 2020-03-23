@@ -74,7 +74,7 @@ public class Logic {
             }
         }
         if (rst == -1) {
-            throw new FiguraNotFoundException ("Фигура отсутствует");
+            throw new FiguraNotFoundException("Фигура отсутствует");
         }
 
         return rst;

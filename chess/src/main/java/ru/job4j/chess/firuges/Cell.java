@@ -20,8 +20,8 @@ public enum Cell {
 
 
    public static Cell coordinates(int x, int y) {
-        Cell result = null ;
-        for (Cell cell : Cell.values() ) {
+        Cell result = null;
+        for (Cell cell : Cell.values()) {
             if (cell.x == x && cell.y == y) {
                 result = cell;
                 break;
