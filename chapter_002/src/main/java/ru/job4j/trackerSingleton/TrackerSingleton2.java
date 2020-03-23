@@ -1,6 +1,4 @@
-package ru.job4j.ttrackerSingleton;
-
-import ru.job4j.start.Tracker;
+package ru.job4j.trackerSingleton;
 
 /**
  * Ленивая згрузка происходит, когда мы явно обращаемся к объекту. Происходит его загрузка.

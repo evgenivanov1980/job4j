@@ -45,7 +45,7 @@ public class MenuTracker {
         this.actions.add(new DeleteItem(3, "Удалить заявку"));
         this.actions.add(new FindById(4, "Найти заявку по id"));
         this.actions.add(new FindByName(5, "Найти заявку по имени"));
-        this.actions.add(new Exit(input,6, "Выйти из программы"));
+        this.actions.add(new Exit(input, 6, "Выйти из программы"));
 
 
 

@@ -1,8 +1,6 @@
-package ru.job4j.ttrackerSingleton;
+package ru.job4j.trackerSingleton;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class TrackerSingleton3Test {
     @Test
