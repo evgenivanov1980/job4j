@@ -1,12 +1,12 @@
-package ru.job4j.trackerSingleton;
+package ru.job4j.trackersingleton;
 
 import org.junit.Test;
 
-public class TrackerSingleton4Test {
+public class TrackerSingletonFourTest {
     @Test
     public void whenCreatingTwoObjectsSingleton4ThenHeOnlyOne() {
-        TrackerSingleton4 tracker1 = TrackerSingleton4.getInstance();
-        TrackerSingleton4 tracker2 = TrackerSingleton4.getInstance();
+        TrackerSingletonFour tracker1 = TrackerSingletonFour.getInstance();
+        TrackerSingletonFour tracker2 = TrackerSingletonFour.getInstance();
         if (tracker1 == tracker2) {
             System.out.println("У нас только один объект Singleton");
         }

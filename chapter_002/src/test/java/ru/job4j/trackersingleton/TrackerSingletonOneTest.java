@@ -1,4 +1,4 @@
-package ru.job4j.trackerSingleton;
+package ru.job4j.trackersingleton;
 
 import org.junit.Test;
 

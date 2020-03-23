@@ -1,20 +1,20 @@
-package ru.job4j.trackerSingleton;
+package ru.job4j.trackersingleton;
 
 /**
  * Ленивая згрузка происходит, когда мы явно обращаемся к объекту. Происходит его загрузка.
  */
 
-public class TrackerSingleton2 {
+public class TrackerSingletonTwo {
 
-    private static TrackerSingleton2 instance;
+    private static TrackerSingletonTwo instance;
 
-    private TrackerSingleton2() {
+    private TrackerSingletonTwo() {
 
     }
 
-    public static TrackerSingleton2 getInstance() {
+    public static TrackerSingletonTwo getInstance() {
         if (instance == null) {
-            instance = new TrackerSingleton2();
+            instance = new TrackerSingletonTwo();
         }
         return instance;
     }
