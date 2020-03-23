@@ -73,7 +73,7 @@ public class StartUITest {
     public void whenUserAddItemThenTrackerHasNewItemWithSomeName() {
         Input input = new StubInput(new String[]{"0", "testname", "testdesc", "6"}); // создаем Stubinput с последовательностью действий
         new StartUI(input, this.tracker).init(); // создаем startUI и вызываем метод init
-        assertThat(tracker.getAll().get(0), is("testname"));
+        assertThat(tracker.getAll().get(0).getName(), is("testname"));
 
 
     }
