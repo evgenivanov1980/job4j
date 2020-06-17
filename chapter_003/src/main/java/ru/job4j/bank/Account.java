@@ -27,17 +27,18 @@ public class Account {
         this.balance = balance;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Account account = (Account) o;
         return Double.compare(account.balance, balance) == 0 &&
-                requisite.equals(account.requisite);
+                Objects.equals(requisite, account.requisite);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(requisite);
+        return Objects.hash(requisite, balance);
     }
 }

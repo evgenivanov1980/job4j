@@ -1,9 +1,6 @@
 package ru.job4j.bank;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -29,22 +26,40 @@ public class BankService {
         accounts.add(account);
     }
     }
-    public Account findByRequisite(String passport, String requisite) {
+    public Optional<Account> findByRequisite(String passport, String requisite) {
         Account account = null;
         User user = findByPassport(passport);
-        List<Account> accounts = users.get(user);
-        for (Account account1: accounts) {
-            if (account1.getRequisite().equals(requisite)) {
-                account = account1;
+        if (Objects.nonNull(user)){
+            List<Account> accounts = users.get(user);
+                for (Account account1: accounts) {
+                    if (account1.getRequisite().equals(requisite)) {
+                        account = account1;
+                    }
+                }
 
             }
+        return Optional.ofNullable(account);
         }
-        return account;
+
+        public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
+            boolean result = false;
+            Optional<Account> sender = findByRequisite(srcPassport, srcRequisite);
+            Optional<Account> recipient = findByRequisite(destPassport, destRequisite);
+            if (sender.isPresent() && recipient.isPresent()) {
+                if (sender.get().getBalance() >= amount) {
+                    recipient.get().setBalance(recipient.get().getBalance() + amount);
+                    sender.get().setBalance(sender.get().getBalance() - amount);
+                    result = true;
+
+                }
+            }
+            return result;
+
+        }
+
 
     }
 
 
 
-
-}
 
