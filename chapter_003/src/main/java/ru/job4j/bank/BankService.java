@@ -15,21 +15,24 @@ public class BankService {
         for (User user1: users.keySet()) {
             if (user1.getPassport().equals(passport)) {
                 user = user1;
+                break;
             }
         }
         return user;
     }
     public void addAccount(String passport, Account account) {
     User user = findByPassport(passport);
-    List<Account> accounts = users.get(user);
-    if (!accounts.contains(account)) {
-        accounts.add(account);
+    if (user != null) {
+            List<Account> accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+            }
     }
     }
-    public Optional<Account> findByRequisite(String passport, String requisite) {
+    public Account findByRequisite(String passport, String requisite) {
         Account account = null;
         User user = findByPassport(passport);
-        if (Objects.nonNull(user)){
+        if (user != null) {
             List<Account> accounts = users.get(user);
                 for (Account account1: accounts) {
                     if (account1.getRequisite().equals(requisite)) {
@@ -38,17 +41,17 @@ public class BankService {
                 }
 
             }
-        return Optional.ofNullable(account);
+        return account;
         }
 
         public boolean transferMoney(String srcPassport, String srcRequisite, String destPassport, String destRequisite, double amount) {
             boolean result = false;
-            Optional<Account> sender = findByRequisite(srcPassport, srcRequisite);
-            Optional<Account> recipient = findByRequisite(destPassport, destRequisite);
-            if (sender.isPresent() && recipient.isPresent()) {
-                if (sender.get().getBalance() >= amount) {
-                    recipient.get().setBalance(recipient.get().getBalance() + amount);
-                    sender.get().setBalance(sender.get().getBalance() - amount);
+            Account sender = findByRequisite(srcPassport, srcRequisite);
+            Account recipient = findByRequisite(destPassport, destRequisite);
+            if (sender != null && recipient != null) {
+                if (sender.getBalance() >= amount) {
+                    recipient.setBalance(recipient.getBalance() + amount);
+                    sender.setBalance(sender.getBalance() - amount);
                     result = true;
 
                 }
