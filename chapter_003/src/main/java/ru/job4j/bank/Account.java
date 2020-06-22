@@ -15,7 +15,7 @@ public class Account {
         return requisite;
     }
 
-    public void setRequisite (String requisite) {
+    public void setRequisite(String requisite) {
         this.requisite = requisite;
     }
 
@@ -30,11 +30,15 @@ public class Account {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Account account = (Account) o;
-        return Double.compare(account.balance, balance) == 0 &&
-                Objects.equals(requisite, account.requisite);
+        return Double.compare(account.balance, balance) == 0
+                && Objects.equals(requisite, account.requisite);
     }
 
     @Override

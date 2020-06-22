@@ -11,10 +11,10 @@ public class FreezeStr {
      * Метод сравнивает две строки и определяет явлется ли одна строка переставлением символов другой строки
      * @param left первая строка
      * @param right вторая строка
-     * @return result возвращает результат 
+     * @return result возвращает результат
      */
 
-    public static boolean eq(String left, String right){
+    public static boolean eq(String left, String right) {
         boolean result = false;
         ArrayList<Character> world1 = new ArrayList<>();
         ArrayList<Character> world2 = new ArrayList<>();
