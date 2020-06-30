@@ -18,46 +18,31 @@ public class FreezeStr {
      */
 
     public static boolean eq(String left, String right) {
-        boolean result = true;
-        int key1 = 1;
-        int key2 = 1;
-        int key3 = 0;
-        int counter = 0;
-        int counter1 = 0;
-
-        Map<Integer, Character> world1 = new HashMap<>();
-        Map<Integer, Character> world2 = new HashMap<>();
-        for (int i = 0; i < left.length(); i++) {
-            world1.put(key1, left.charAt(i));
-            key1++;
-        }
-        for (int j = 0; j < right.length(); j++) {
-            world2.put(key2, right.charAt(j));
-            key2++;
-        }
-        for (Map.Entry<Integer, Character> entry : world1.entrySet()) {
-            for (Map.Entry<Integer, Character> entry1 : world1.entrySet()) {
-                if (entry.getValue().equals(entry1.getValue())) {
-                    counter++;
-                }
+        char[] cha = left.toCharArray();
+        char[] cha1 = right.toCharArray();
+        Map<Character, Integer> world1 = new HashMap<>();
+        world1.put(cha[0], 1);
+        for (int i = 1; i < cha.length; i++) {
+            if (world1.containsKey(cha[i])) {
+                world1.put(cha[i], (world1.get(cha[i])) + 1);
+            } else {
+                world1.put(cha[i], 1);
             }
-            key3 = 0;
-            if (key3 < world2.size()) {
-                for (Map.Entry<Integer, Character> entry4 : world2.entrySet()) {
-                    if (world2.containsValue(entry.getValue())) {
-                        if (entry.getValue().equals(entry4.getValue())) {
-                            counter1++;
-                        }
-                    }
-                    key3++;
-                }
+        }
+        for (int j = 0; j < cha1.length; j++) {
+            if (world1.containsKey(cha1[j])) {
+                world1.put(cha1[j], world1.get(cha1[j]) - 1);
             }
-                if (counter != counter1) {
-                    result = false;
-                }
+            else {
+                break;
+            }
+            if (world1.get(cha1[j]) == 0) {
+                world1.remove(cha1[j]);
+            }
 
         }
-        return result;
+        return world1.isEmpty();
     }
 }
+
 
