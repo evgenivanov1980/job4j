@@ -18,30 +18,26 @@ public class FreezeStr {
      */
 
     public static boolean eq(String left, String right) {
-        char[] cha = left.toCharArray();
-        char[] cha1 = right.toCharArray();
-        Map<Character, Integer> world1 = new HashMap<>();
-        world1.put(cha[0], 1);
-        for (int i = 1; i < cha.length; i++) {
-            if (world1.containsKey(cha[i])) {
-                world1.put(cha[i], (world1.get(cha[i])) + 1);
-            } else {
-                world1.put(cha[i], 1);
-            }
+        Map<Character, Integer> world= new HashMap<>();
+        for (int i = 0; i < left.length(); i++) {
+            int count = world.getOrDefault(left.charAt(i), 0);
+            world.put(left.charAt(i), count + 1);
         }
-        for (int j = 0; j < cha1.length; j++) {
-            if (world1.containsKey(cha1[j])) {
-                world1.put(cha1[j], world1.get(cha1[j]) - 1);
-            }
-            else {
+        for (int j = 0; j < right.length(); j++) {
+            if(!world.containsKey(right.charAt(j))) {
                 break;
             }
-            if (world1.get(cha1[j]) == 0) {
-                world1.remove(cha1[j]);
+            int count = world.get(right.charAt(j));
+            if (count == 1) {
+                world.remove(right.charAt(j));
+            }
+            else {
+                world.put(right.charAt(j), count - 1);
             }
 
+
         }
-        return world1.isEmpty();
+        return world.isEmpty();
     }
 }
 
