@@ -23,7 +23,7 @@ public class DiapasonTest {
     @Test
     public void whenQuadraticFunctionThenQuadraticResult() {
         Diapason function = new Diapason();
-        List<Double> result = function.quadratic(1, 3, x -> 2 * (x * x) + 2 * x + 1);
+        List<Double> result = function.diapason(1, 3, x -> 2 * (x * x) + 2 * x + 1);
         List<Double> expected = Arrays.asList(5D, 13D);
         assertThat(result, is(expected));
     }
@@ -31,7 +31,7 @@ public class DiapasonTest {
     @Test
     public void whenDemonstrativeFunctionThenDemonstrativeResult() {
         Diapason function = new Diapason();
-        List<Double> result = function.demonstrative(1, 3, x -> Math.pow(2, x));
+        List<Double> result = function.diapason(1, 3, x -> Math.pow(2, x));
         List<Double> expected = Arrays.asList(2D, 4D);
         assertThat(result, is(expected));
     }
