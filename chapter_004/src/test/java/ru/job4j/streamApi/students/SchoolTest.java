@@ -35,7 +35,7 @@ public class SchoolTest {
                 new Student(90, "Sidirov")
 
         );
-        List<Student> result = new School().collect(B, p -> p.getScore() >= 50 && p.getScore() <= 70);
+        List<Student> result = new School().collect(B, p -> p.getScore() >= 50 && p.getScore() < 70);
         List<Student> expect = List.of(
                 new Student(60, "Ivanov"),
                 new Student(70, "Petrov")
@@ -53,7 +53,7 @@ public class SchoolTest {
                 new Student(90, "Sidirov")
 
         );
-        List<Student> result = new School().collect(C, p -> p.getScore() >= 0 && p.getScore() <= 50);
+        List<Student> result = new School().collect(C, p -> p.getScore() >= 0 && p.getScore() < 50);
         List<Student> expect = List.of(
                 new Student(1, "Ivanov"),
                 new Student(45, "Petrov")
