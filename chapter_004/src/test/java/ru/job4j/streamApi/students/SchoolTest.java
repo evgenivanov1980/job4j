@@ -37,8 +37,8 @@ public class SchoolTest {
         );
         List<Student> result = new School().collect(B, p -> p.getScore() >= 50 && p.getScore() < 70);
         List<Student> expect = List.of(
-                new Student(60, "Ivanov"),
-                new Student(70, "Petrov")
+                new Student(60, "Ivanov")
+
 
         );
         assertThat(result, is(expect));
