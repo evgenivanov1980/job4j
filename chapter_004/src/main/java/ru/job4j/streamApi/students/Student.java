@@ -15,14 +15,6 @@ public class Student {
         return score;
     }
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
     @Override
     public boolean equals(Object obj) {
         if(this == obj) {
