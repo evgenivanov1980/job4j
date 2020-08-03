@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 
 public class ConvertMatrixToList {
     public List<Integer> flatMapExample(int[][] arr) {
-        return Stream.of(arr).flatMapToInt(Arrays::stream).collect(Collectors.toList());
+        return Stream.of(arr).flatMapToInt(Arrays::stream).boxed().collect(Collectors.toList());
 
     }
 }
