@@ -12,7 +12,7 @@ public class BankService {
     }
     public User findByPassport(String passport) {
         return users.keySet().stream().filter(user -> user
-        .getPassport().contains(passport)).findFirst().orElse(null);
+        .getPassport().equals(passport)).findFirst().orElse(null);
         }
     public void addAccount(String passport, Account account) {
     User user = findByPassport(passport);
@@ -29,7 +29,7 @@ public class BankService {
         if (user != null) {
             accounts = users.get(user);
         }
-        return accounts.stream().filter(account -> account.getRequisite().contains(requisite)).findFirst()
+        return accounts.stream().filter(account -> account.getRequisite().equals(requisite)).findFirst()
                 .orElse(null);
     }
 
