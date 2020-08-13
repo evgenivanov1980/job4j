@@ -8,8 +8,8 @@ import java.util.stream.Stream;
 
 public class StudentLevel {
     public static List<Student> levelof(List<Student> students, int bound) {
-        List<Student> st = students.stream().filter(Objects::nonNull).sorted(Comparator.comparingInt(Student::getScore).reversed()).
+        return  students.stream().filter(Objects::nonNull).sorted(Comparator.comparingInt(Student::getScore).reversed()).
                 takeWhile(student -> student.getScore() > bound).collect(Collectors.toList());
-        return st;
+
     }
 }
