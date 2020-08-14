@@ -1,4 +1,4 @@
-package ru.job4j.streamApi.touristCompany;
+package ru.job4j.streamapi.touristcompany;
 
 import java.util.*;
 import java.util.stream.Collectors;

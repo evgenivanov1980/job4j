@@ -1,8 +1,7 @@
-package ru.job4j.streamApi.students;
+package ru.job4j.streamapi.students;
 
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Roster {

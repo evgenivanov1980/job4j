@@ -1,4 +1,4 @@
-package ru.job4j.streamApi.students;
+package ru.job4j.streamapi.students;
 
 import org.junit.Test;
 
@@ -14,8 +14,9 @@ public class StudentLevelTest {
         List<Student> input = new ArrayList<>();
         input.add(new Student(128, "Petrov"));
         input.add(new Student(28, "Ivanova"));
-        List<Student> expected = List.of(new Student(28, "Ivanova"),
-                                         new Student(128, "Petrov"));
+        List<Student> expected = List.of(
+                                         new Student(128, "Petrov"),
+                new Student(28, "Ivanova"));
         assertThat(StudentLevel.levelof(input, 20), is(expected));
     }
     @Test

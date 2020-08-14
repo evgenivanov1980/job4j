@@ -18,20 +18,19 @@ public class FreezeStr {
      */
 
     public static boolean eq(String left, String right) {
-        Map<Character, Integer> world= new HashMap<>();
+        Map<Character, Integer> world = new HashMap<>();
         for (int i = 0; i < left.length(); i++) {
             int count = world.getOrDefault(left.charAt(i), 0);
             world.put(left.charAt(i), count + 1);
         }
         for (int j = 0; j < right.length(); j++) {
-            if(!world.containsKey(right.charAt(j))) {
+            if (!world.containsKey(right.charAt(j))) {
                 break;
             }
             int count = world.get(right.charAt(j));
             if (count == 1) {
                 world.remove(right.charAt(j));
-            }
-            else {
+            } else {
                 world.put(right.charAt(j), count - 1);
             }
 

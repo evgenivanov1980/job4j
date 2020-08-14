@@ -14,10 +14,9 @@ public class RefMethod {
         names.forEach(out);
     }
     public static void cutOut(String value) {
-        if(value.length() > 10) {
+        if (value.length() > 10) {
             System.out.println(value.substring(0, 10) + "..");
-        }
-        else {
+        } else {
             System.out.println(value);
         }
     }

@@ -1,8 +1,6 @@
-package ru.job4j.streamApi;
+package ru.job4j.streamapi;
 
 import org.junit.Test;
-
-import java.awt.*;
 
 import static org.junit.Assert.*;
 import static org.hamcrest.core.Is.is;
@@ -14,9 +12,7 @@ public class ConvertMatrixToListTest {
         ConvertMatrixToList matrix = new ConvertMatrixToList();
         int[][] arr = {{1, 2}, {3, 4}, {5, 6}};
         List<Integer> result = matrix.flatMapExample(arr);
-        List<Integer> expect = List.of(1, 2, 3 ,4, 5, 6);
+        List<Integer> expect = List.of(1, 2, 3, 4, 5, 6);
         assertThat(result, is(expect));
-
     }
-
 }

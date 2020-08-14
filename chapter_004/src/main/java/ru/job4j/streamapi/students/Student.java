@@ -1,4 +1,4 @@
-package ru.job4j.streamApi.students;
+package ru.job4j.streamapi.students;
 
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public class Student {
     }
     @Override
     public boolean equals(Object obj) {
-        if(this == obj) {
+        if (this == obj) {
             return true;
         }
         if (obj == null || getClass() != obj.getClass()) {
