@@ -12,7 +12,6 @@ public class RosterTest {
     @Test
     public void whenStudentIsListThenConvertItToMap() {
         Roster roster = new Roster();
-        Map<String, Student> studentMap;
         List<Student> students = List.of(
                 new Student(5, "Ivanov"),
                 new Student(10, "Petrov"),

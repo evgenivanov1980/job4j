@@ -13,28 +13,17 @@ public class PriorityQueue {
      * @param task задача
      */
 
-
     public void put(Task task) {
-        int k = 0;
-        for (Task task1 : tasks) {
+        var k = 0;
+        for (var task1 : tasks) {
             if (task1.getPriorety() < task.getPriorety()) {
                 k++;
-
-
             } else {
                 break;
             }
-
-
         }
-
-
         tasks.add(k, task);
-
-
     }
-
-
     public Task take() {
         return this.tasks.poll();
     }
