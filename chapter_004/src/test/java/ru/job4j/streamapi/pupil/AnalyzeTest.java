@@ -18,6 +18,7 @@ public class AnalyzeTest {
         );
         assertThat(average, is(100D));
     }
+
     @Test
     public void whenPupilAverage() {
         double average = Analyze.averageScore(
@@ -29,4 +30,16 @@ public class AnalyzeTest {
         assertThat(average, is(80D));
     }
 
+    @Test
+    public void whenListOfPupilAverage() {
+        List<Tuple> average = Analyze.averageScoreBySubject(
+                List.of(
+                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 100))),
+                        new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 60)))
+                ).stream());
+        assertThat(average, is(List.of(
+                new Tuple("Ivanov", 100),
+                new Tuple("Petrov", 60)
+        )));
+    }
 }
