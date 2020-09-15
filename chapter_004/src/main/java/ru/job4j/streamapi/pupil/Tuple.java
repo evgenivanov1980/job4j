@@ -23,4 +23,7 @@ public class Tuple {
         return Objects.hash(name, score);
     }
 
+    public double getScore() {
+        return score;
+    }
 }

@@ -22,12 +22,25 @@ public class Analyze {
                 .collect(Collectors.toList());
         Map<String, Double> score = subjects.stream()
                 .collect(Collectors.groupingBy(Subject::getName, Collectors.averagingDouble(Subject::getScore)));
-        return score.entrySet().stream().map(s -> new Tuple(s.getKey(), s.getValue())).collect(Collectors.toList());
+        return score.entrySet().stream().map(s -> new Tuple(s.getKey(), s.getValue()))
+                .collect(Collectors.toList());
     }
 
     public static Tuple bestStudent(Stream<Pupil> pupilStream) {
         return pupilStream.map(p -> new Tuple(p.getName(), p.getSubject().stream()
-                .max(Comparator.comparing(Subject::getScore)))).collect(Collectors.toList());
+                .mapToDouble(Subject::getScore).sum()))
+                .max(Comparator.comparing(Tuple::getScore))
+                .orElse(null);
+    }
+    public static Tuple bestSubject(Stream<Pupil> pupilStream) {
+        List<Subject> subjects = pupilStream.map(Pupil::getSubject)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+        Map<String, Double> score = subjects.stream()
+                .collect(Collectors.groupingBy(Subject::getName, Collectors.summingDouble(Subject::getScore)));
+        return score.entrySet().stream().map(s -> new Tuple(s.getKey(), s.getValue()))
+                .max(Comparator.comparing(Tuple::getScore))
+                .orElse(null);
     }
 
 }
