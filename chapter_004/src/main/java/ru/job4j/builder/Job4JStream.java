@@ -4,52 +4,43 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Job4JStream {
-     List source;
-     Predicate filter;
+    private List<String> source;
+    private Predicate<String> filter;
+    private String[] array;
 
-    public static Job4JStream of(List) {
+
+    public static class Builder {
+        private String[] array;
+        private Predicate<String> predicate;
+        private List<String> list;
+
+        public Builder of(String[] array) {
+            this.array = array;
+            return self();
+        }
+
+        public Builder filter(Predicate<String> predicate) {
+            this.predicate = predicate;
+            return self();
+        }
+
+        public Builder collect(List<String> list) {
+            this.list = list;
+            return self();
+        }
+
+        public Builder self() {
+            return this;
+        }
+
+    }
+    public List<String> myStream() {
+        Job4JStream job4JStream = new Builder().of(array).filter(filter).collect(source).self();
+
 
 
     }
 
-    public static Job4JStream filter(Predicate) {
 
-
-    }
-
-    public static Job4JStream collect(List) {
-
-
-    }
 
 }
-
-interface Builder {
-    Builder setSource(List source);
-
-    Builder setPredicate(Predicate filter);
-
-    Job4JStream build();
-}
-
-class Job4JStreamBuilder implements Builder {
-    Job4JStream job4j = new Job4JStream();
-
-    @Override
-    public Builder setSource(List source) {
-        job4j.source = source;
-        return this;
-    }
-
-    @Override
-    public Builder setPredicate(Predicate filter) {
-        job4j.filter = filter;
-        return this;
-    }
-
-    @Override
-    public Job4JStream build() {
-        return job4j;
-    }
-}
-
