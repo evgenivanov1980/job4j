@@ -34,10 +34,8 @@ public class Job4JStream {
         }
 
     }
-    public List<String> myStream() {
-        Job4JStream job4JStream = new Builder().of(array).filter(filter).collect(source).self();
-
-
+    public static void myStream() {
+        Job4JStream job4JStream = new Builder().of(array).filter(predicate).collect(list).self();
 
     }
 
