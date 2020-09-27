@@ -7,32 +7,31 @@ public class Job4JStream {
     private List<String> source;
     private Predicate<String> filter;
 
-
-    public static Job4JStream of(List<String> list) {
+    public static  Job4JStream of(List<String> list) {
         return new Builder()
                 .of(list)
                 .build();
 
     }
 
-    public static Job4JStream filter(Predicate<String> predicate) {
+    public  Job4JStream filter(Predicate<String> predicate) {
         return new Builder()
+                .of(source)
                 .filter(predicate)
                 .build();
+
     }
 
     public  List<String> collect(List<String> list) {
-        Job4JStream job4j = new Job4JStream();
-        return new Builder()
-                .of(job4j.source)
-                .filter(job4j.filter)
-                .collect(list.forEach())
-                .build();
+        for (String str : source) {
+            if (str.equals(filter(filter))) {
+                list.add(str);
+
+            }
+
+        }
+        return list;
     }
-
-
-
-
 
 
     public static class Builder {
