@@ -24,7 +24,7 @@ public class Job4JStream {
 
     public  List<String> collect(List<String> list) {
         for (String str : source) {
-            if (str.equals(filter(filter))) {
+            if (filter.test(str)) {
                 list.add(str);
 
             }
