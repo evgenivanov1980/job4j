@@ -47,8 +47,6 @@ public class Tracker {
                 items.set(i, item);
                 result = true;
                 break;
-
-
             }
 
 
@@ -74,9 +72,7 @@ public class Tracker {
                 this.position--;
                 result = true;
                 break;
-
             }
-
         }
         return result;
     }
